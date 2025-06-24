@@ -11,6 +11,6 @@ public class EmployeeEntity {
     private String surname;
     private String email;
     private String password;
-    Role role;
+    private Role role;
 
 }

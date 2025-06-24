@@ -1,15 +1,12 @@
-package com.example.miniBoss;
+package com.example.miniBoss.Controllers;
 
 import com.example.miniBoss.dto.EmployeeRequestDto;
 import com.example.miniBoss.dto.EmployeeResponseDto;
-import com.example.miniBoss.entity.EmployeeEntity;
-import com.example.miniBoss.repository.EmployeeRepository;
 import com.example.miniBoss.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

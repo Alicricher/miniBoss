@@ -8,10 +8,10 @@ public class EmployeeMapper {
 
     public static EmployeeResponseDto mapToResponseDto(EmployeeEntity employeeEntity) {
         EmployeeResponseDto responseDto = new EmployeeResponseDto();
-        responseDto.setInfo(employeeEntity.getName() + "\n" +
-                employeeEntity.getSurname() + "\n" +
-                employeeEntity.getEmail() + "\n" +
-                employeeEntity.getRole());
+        responseDto.setName(employeeEntity.getName());
+        responseDto.setSurname(employeeEntity.getSurname());
+        responseDto.setEmail(employeeEntity.getEmail());
+        responseDto.setRole(employeeEntity.getRole().getDisplayName());
         return responseDto;
     }
 
