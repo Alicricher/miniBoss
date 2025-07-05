@@ -3,10 +3,21 @@ package com.example.miniBoss.mapper;
 import com.example.miniBoss.dto.EmployeeRequestDto;
 import com.example.miniBoss.dto.EmployeeResponseDto;
 import com.example.miniBoss.entity.EmployeeEntity;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.factory.Mappers;
 
-public class EmployeeMapper {
+@Mapper(componentModel = "spring")
+public interface EmployeeMapper {
+    EmployeeMapper INSTANCE = Mappers.getMapper(EmployeeMapper.class);
 
-    public static EmployeeResponseDto mapToResponseDto(EmployeeEntity employeeEntity) {
+    EmployeeEntity toEntity(EmployeeRequestDto dto);
+    EmployeeResponseDto toResponse(EmployeeEntity entity);
+    void updateEntityFromDto(EmployeeRequestDto dto, @MappingTarget EmployeeEntity entity);
+
+}
+
+/*public static EmployeeResponseDto mapToResponseDto(EmployeeEntity employeeEntity) {
         EmployeeResponseDto responseDto = new EmployeeResponseDto();
         responseDto.setName(employeeEntity.getName());
         responseDto.setSurname(employeeEntity.getSurname());
@@ -23,5 +34,4 @@ public class EmployeeMapper {
         newEntity.setPassword(requestDto.getPassword());
         newEntity.setRole(requestDto.getRole());
         return newEntity;
-    }
-}
+    }*/

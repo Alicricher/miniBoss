@@ -4,9 +4,13 @@ import com.example.miniBoss.dto.EmployeeRequestDto;
 import com.example.miniBoss.dto.EmployeeResponseDto;
 import com.example.miniBoss.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -19,8 +23,8 @@ public class EmployeeController {
         return employeeService.addEmployee(employeeRequestDto);
     }
     @GetMapping("/staff")
-    public List<EmployeeResponseDto> getAllStaff() {
-        return employeeService.getAllStaff();
+    public Page<EmployeeResponseDto> getAllStaff(Pageable pageable) {
+        return employeeService.getAllStaff(pageable);
     }
 
     @GetMapping("/staff/{id}")
@@ -29,8 +33,8 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/staff/{id}")
-    public boolean deleteStaff(@PathVariable int id) {
-        return  employeeService.deleteEmployeeById(id);
+    public void deleteStaff(@PathVariable int id) {
+         employeeService.deleteEmployeeById(id);
     }
 
     @PutMapping("/staff/{id}")

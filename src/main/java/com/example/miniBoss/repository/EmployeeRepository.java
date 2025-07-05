@@ -6,11 +6,16 @@ import java.util.Optional;
 
 
 import com.example.miniBoss.entity.EmployeeEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class EmployeeRepository {
-    private int id;
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
+
+}
+
+
+    /*private int id;
     private final List<EmployeeEntity> listOfEmployees = new ArrayList<EmployeeEntity>();
 
     public EmployeeEntity addEmployee(EmployeeEntity employeeEntity) {
@@ -55,5 +60,5 @@ public class EmployeeRepository {
         employeeEntity.setRole(newEmployeeEntity.getRole());
         return employeeEntity;
 
-    }
-}
+    }*/
+
