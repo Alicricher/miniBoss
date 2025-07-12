@@ -1,4 +1,4 @@
-package com.example.miniBoss.Controllers;
+package com.example.miniBoss.controllers;
 
 import com.example.miniBoss.dto.OrderRequestDto;
 import com.example.miniBoss.dto.OrderResponseDto;

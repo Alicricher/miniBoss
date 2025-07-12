@@ -44,7 +44,7 @@ public class OrderService {
         return orderRepository.findAll(pageable).map(orderMapper::toResponse);
     }
     public OrderResponseDto getOrder(int id) {
-        return orderRepository.findById(id).map(orderMapper::toResponse).orElse(null);
+        return orderRepository.findById(id).map(orderMapper::toResponse).orElseThrow(() -> new RuntimeException("No order found"));
     }
 
 }

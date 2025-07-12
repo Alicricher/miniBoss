@@ -1,4 +1,4 @@
-package com.example.miniBoss.Controllers;
+package com.example.miniBoss.controllers;
 
 import com.example.miniBoss.dto.EmployeeRequestDto;
 import com.example.miniBoss.dto.EmployeeResponseDto;
@@ -6,7 +6,6 @@ import com.example.miniBoss.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import org.springframework.web.bind.annotation.*;
 

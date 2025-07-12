@@ -7,9 +7,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = OrderMapper.class)
 public interface ClientMapper {
-    ClientMapper INSTANCE = Mappers.getMapper(ClientMapper.class);
+
 
     ClientEntity toEntity(ClientRequestDto requestDto);
     ClientResponseDto toResponse(ClientEntity entity);
