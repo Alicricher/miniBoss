@@ -36,7 +36,6 @@ com\example\miniBoss\entity\ClientEntity.class
 com\example\miniBoss\service\EmployeeService.class
 com\example\miniBoss\mapper\OrderMapperImpl.class
 com\example\miniBoss\controllers\EmployeeController.class
-com\example\miniBoss\exception\GlobalExceptionHandler.class
 com\example\miniBoss\mapper\EmployeeMapperImpl.class
 com\example\miniBoss\dto\OrderItemRequestDto.class
 com\example\miniBoss\service\ProductService.class

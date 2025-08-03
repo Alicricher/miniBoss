@@ -1,7 +1,8 @@
-package com.example.miniBoss.exception;
+/*package com.example.miniBoss.exception;
 
 import com.example.miniBoss.dto.ErrorResponseDto;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ErrorResponseDto> handleEntityNotFound(EntityNotFoundException ex) {
         ErrorResponseDto error = new ErrorResponseDto(ex.getMessage(), HttpStatus.NOT_FOUND.value());
@@ -22,9 +24,14 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseDto> handleGeneralError(Exception ex) {
+    public ResponseEntity<ErrorResponseDto> handleGeneralError(HttpServletRequest request, Exception ex) {
+        String path = request.getRequestURI();
+        if (path.startsWith("/v3/api-docs") || path.startsWith("/swagger-ui")) {
+            return null; // не перехватывать Swagger-запросы
+        }
+
         ErrorResponseDto error = new ErrorResponseDto("Internal server error", HttpStatus.INTERNAL_SERVER_ERROR.value());
-        ex.printStackTrace(); // или log.error(ex)
+        ex.printStackTrace(); // или логировать
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
-}
+}*/
