@@ -1,4 +1,4 @@
--- Создание таблицы клиентов
+
 CREATE TABLE clients (
                          id SERIAL PRIMARY KEY,
                          name VARCHAR(100) NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE clients (
                          phone VARCHAR(20)
 );
 
--- Создание таблицы заказов
+
 CREATE TABLE orders (
                         id SERIAL PRIMARY KEY,
                         created_at TIMESTAMP NOT NULL,
